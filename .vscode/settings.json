@@ -1,0 +1,7 @@
+{
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 300000,
+    "terminal.integrated.automationShell.linux": "",
+    "task.problemMatchers.neverPrompt": null,
+    "django.snippets.use": false
+}
