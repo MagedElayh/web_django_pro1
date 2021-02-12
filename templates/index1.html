@@ -71,11 +71,11 @@
             <a class="collapse-item" href="{% url 'adddoctor' %}">Add Doctor</a>
             <a class="collapse-item" href="{% url 'doctor' %}">Working Day</a>
             {% comment %} {% url 'doctor_page' %} {% endcomment %}
-            <a class="collapse-item" href="cards.html">Employee/Secretary</a>
+            <a class="collapse-item" ref="{% url 'secertary' %}">Employee/Secretary</a>
             
             <a class="collapse-item" href="{% url 'period' %}">Working Hours</a>
-            <a class="collapse-item" href="buttons.html">Buttons</a>
-            <a class="collapse-item" href="cards.html">Cards</a>
+            <a class="collapse-item" ref="{% url 'secertary' %}">Buttons</a>
+            <a class="collapse-item" href="{% url 'doctor_list' %}">Cards</a>
           </div>
         </div>
       </li>
@@ -365,7 +365,7 @@
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Your Website 2020</span>
+            <span>Copyright &copy; Your Website 2021</span>
           </div>
         </div>
       </footer>

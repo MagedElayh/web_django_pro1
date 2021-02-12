@@ -1,0 +1,22 @@
+{% extends "index1.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% comment %} {{form_topic}} {% endcomment %}
+
+        <div class="card shadow ">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Doctor Page</h6>
+            </div>
+            <div class="card-body">
+               <h2> Welcome to list of doctors:</h2>
+               <ol>
+                    {%for doctor in doctors%}
+                    <li>
+                    <a href="{{doctor.id}}">{{doctor.frist_name}}</a>
+                    </li>
+                    {%endfor%}
+               </ol> 
+            </div>
+        </div>
+
+{% endblock %}

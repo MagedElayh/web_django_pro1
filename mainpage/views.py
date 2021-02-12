@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from django.views import View
-from django.views.generic import TemplateView, FormView
+from django.views.generic import TemplateView, FormView,ListView , DetailView
 from .models import Doctor, Period, Month
-from .forms import DoctorForm, PeriodForm
+from .forms import DoctorForm, PeriodForm , SecertaryForm
 # from mainpage.tables import DoctorTable print("vjhgvn")
 
 def mainpage(request):
@@ -80,3 +80,25 @@ class PeriodView(FormView):
         print(form)
         form.save()
         return super().form_valid(form)
+
+class SecertaryView(FormView):
+    template_name = 'secertary.html'
+    form_class    = SecertaryForm
+    success_url   = '/secer'
+    def form_valid(self,form):
+        print(form)
+        form.save()
+        return super().form_valid(form)
+
+class IndexView(TemplateView):
+    template_name = 'index1.html'
+
+class DoctorList(ListView):
+    model = Doctor
+    context_object_name = 'doctors'
+    template_name='doctor_list.html'
+
+class DoctorDetail(DetailView):
+    model = Doctor
+    context_object_name = 'doctor_detail'
+    template_name='doctor_detail.html'

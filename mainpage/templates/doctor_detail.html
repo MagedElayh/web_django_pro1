@@ -1,0 +1,25 @@
+{% extends "index1.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% comment %} {{form_topic}} {% endcomment %}
+
+        <div class="card shadow ">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Doctor Detail Page</h6>
+            </div>
+            <div class="card-body">
+               <h2> Welcome Doctor:</h2>
+               <p>Frist Name : {{doctor_detail.frist_name}}</p>
+               <p>Last Name  : {{doctor_detail.last_name}}</p>
+               <p>Phone      : {{doctor_detail.phone}}</p>
+               <p>Email      : {{doctor_detail.mail}}</p>
+               <h2> Doctor {{doctor_detail.frist_name}} has Sanad :</h2>
+               <ol>
+                    {% for sanad in doctor_detail.sanads.all %}
+                       <li> <p>i get sanad {{sanad.values}} in Date {{sanad.get_date}}</p> </li>
+                    {%endfor%}
+               </ol> 
+            </div>
+        </div>
+
+{% endblock %}

@@ -80,13 +80,13 @@ class Sanad(models.Model):
     values=models.CharField(max_length=10)
     note=models.CharField("note",max_length=300,blank=True, null=True)
     sick=models.ForeignKey(Sick, on_delete=models.CASCADE)
-    doctor=models.ForeignKey(Doctor, on_delete=models.CASCADE)
+    doctor=models.ForeignKey(Doctor , on_delete=models.CASCADE , related_name = "sanads")
 
     def __unicode__(self):
         return u' value:  %s'%(self.values)
 
 class Section_of_Building(models.Model):
-    name    = models.CharField(max_length=250, blank=False, null=False)
+    name     = models.CharField(max_length=250, blank=False, null=False)
     position = models.CharField(max_length=300, blank=True, null=True)
 
     def __str__(self):

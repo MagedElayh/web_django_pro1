@@ -3,10 +3,13 @@
 {% load django_tables2 %}
 
 {% block content %}
+{% comment %}
+
 {% render_table period %}
 <hr />
 {{perForDoc}}
-{% comment %} {% load table_tags %} {% endcomment %}
+ {% load table_tags %} {% endcomment %}
+ {% comment %}
 {{form_topic}}
 
         <div class="card shadow ">
@@ -36,6 +39,7 @@
                 <p class="mb-0">Before working with this theme, you should become familiar with the Bootstrap framework, especially the utility classes.</p>
             </div>
         </div>
+        {% endcomment %}
             <p />
             <div class="card shadow mb-4">
             <div class="card-header py-3">
@@ -46,61 +50,47 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
-                      <th>Name</th>
-                      <th>Position</th>
-                      <th>Office</th>
-                      <th>Age</th>
-                      <th>Start date</th>
-                      <th>Salary</th>
+                      <th>Frist Name</th>
+                      <th>Last Name</th>
+                      <th>Phone</th>
+                      <th>City</th>
+                      <th>Country</th>
+                      <th>Mail</th>
+                      <th>Date Entry</th>
+                      <th>Date Out</th>
+                      <th>Date Out</th>
                     </tr>
                   </thead>
                   <tfoot>
                     <tr>
-                      <th>Name</th>
-                      <th>Position</th>
-                      <th>Office</th>
-                      <th>Age</th>
-                      <th>Start date</th>
-                      <th>Salary</th>
+                      <th>Frist Name</th>
+                      <th>Last Name</th>
+                      <th>Phone</th>
+                      <th>City</th>
+                      <th>Country</th>
+                      <th>Mail</th>
+                      <th>Date Entry</th>
+                      <th>Date Out</th>
+                      <th>Date Out</th>
                     </tr>
                   </tfoot>
                   <tbody>
-                    <tr>
-                      <td>Tiger Nixon</td>
-                      <td>System Architect</td>
-                      <td>Edinburgh</td>
-                      <td>61</td>
-                      <td>2011/04/25</td>
-                      <td>$320,800</td>
-                    </tr>
+
                     {% for doctors in doctor %}
                     <tr>
                                   
                       <td>{{doctors.frist_name}}</td>
                       <td>{{doctors.last_name}}</td>
                       <td>{{doctors.phone}}</td>
-                      <td>{{doctors.date_out}}</td>
-                      <td>{{doctors.mail}}</td>
+                      <td>{{doctors.city}}</td>
                       <td>{{doctors.country}}</td>
-                    
+                      <td>{{doctors.mail}}</td>
+                      <td>{{doctors.date_entry}}</td>
+                      <td>{{doctors.date_out}}</td>
+                      <td><a href="{{doctors.id}}"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></a></td>
                     </tr>
                     {% endfor %}   
-                    <tr>
-                      <td>Garrett Winters</td>
-                      <td>Accountant</td>
-                      <td>Tokyo</td>
-                      <td>63</td>
-                      <td>2011/07/25</td>
-                      <td>$170,750</td>
-                    </tr>
-                    <tr>
-                      <td>Ashton Cox</td>
-                      <td>Junior Technical Author</td>
-                      <td>San Francisco</td>
-                      <td>66</td>
-                      <td>2009/01/12</td>
-                      <td>$86,000</td>
-                    </tr>
+                    
                   </tbody>
                 </table>
               </div>

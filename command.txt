@@ -8,9 +8,7 @@ cd python_project/project1/project2/frist_project
 pip install django-crispy-forms
 pip install Faker
 
-venv\Scripts\activate.bat
-
-python manage.py runserver
+env\Scripts\activate.bat
 
 django-admin startapp 
 

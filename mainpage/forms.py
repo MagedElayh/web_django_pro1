@@ -1,5 +1,5 @@
 from django import forms
-from .models import Doctor, Period, Month ,Secertary
+from .models import Doctor, Period, Month , Secertary
 # import NumberInput
 from django.forms import TimeInput
 import datetime
@@ -30,5 +30,5 @@ class PeriodForm(forms.ModelForm):
 
 class SecertaryForm(forms.ModelForm):
     class Meta:
-        model : Secertary
+        model = Secertary
         fields = '__all__'
