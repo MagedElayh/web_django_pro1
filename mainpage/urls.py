@@ -11,4 +11,5 @@ urlpatterns = [
     path('doctor_list/',views.DoctorList.as_view(),name="doctor_list"),
     path('doctor_list/<int:pk>/',views.DoctorDetail.as_view(),name="doctor_detail"),
     path('doctor/<int:pk>/',views.DoctorDetail.as_view(),name="doctor_detail"),
+    path('doctor/create/', views.doctor_create, name='doctor_create'),
 ]

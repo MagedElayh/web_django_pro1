@@ -4,6 +4,8 @@ from django.views.generic import TemplateView, FormView,ListView , DetailView
 from .models import Doctor, Period, Month
 from .forms import DoctorForm, PeriodForm , SecertaryForm
 # from mainpage.tables import DoctorTable print("vjhgvn")
+from django.http import JsonResponse
+from django.template.loader import render_to_string
 
 def mainpage(request):
     # doctors=DoctorTable(Doctor.objects.all())
@@ -81,6 +83,7 @@ class PeriodView(FormView):
         form.save()
         return super().form_valid(form)
 
+##########################################################
 class SecertaryView(FormView):
     template_name = 'secertary.html'
     form_class    = SecertaryForm
@@ -102,3 +105,13 @@ class DoctorDetail(DetailView):
     model = Doctor
     context_object_name = 'doctor_detail'
     template_name='doctor_detail.html'
+
+###############################################################
+def doctor_create(request):
+    form = DoctorForm()
+    context = {'form': form}
+    html_form = render_to_string('mainpage/includes/partial_doctor_create.html',
+        context,
+        request=request,
+    )
+    return JsonResponse({'html_form': html_form})

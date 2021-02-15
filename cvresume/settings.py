@@ -41,7 +41,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'mainpage',
     'crispy_forms',
-    'django_tables2'
+    'django_tables2',
+    'widget_tweaks',
+    'books',
+    'doctors',
     # 'table',
     
 ]

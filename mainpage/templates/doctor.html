@@ -1,4 +1,9 @@
 {% extends "index1.html" %}
+{% load static %}
+
+{% block javascript %}
+  <script src="{% static 'mainpage/js/doctor.js' %}"></script>
+{% endblock %}
 {% load crispy_forms_tags %}
 {% load django_tables2 %}
 
@@ -42,10 +47,16 @@
         {% endcomment %}
             <p />
             <div class="card shadow mb-4">
-            <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
-              </div>
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+                </div>
             <div class="card-body">
+              <p>
+                <button type="button" class="btn btn-primary js-create-doctor" data-url="{% url 'doctor_create' %}">
+                  <span class="glyphicon glyphicon-plus"></span>
+                  New book
+                </button>
+              </p>
               <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
@@ -87,7 +98,7 @@
                       <td>{{doctors.mail}}</td>
                       <td>{{doctors.date_entry}}</td>
                       <td>{{doctors.date_out}}</td>
-                      <td><a href="{{doctors.id}}"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></a></td>
+                      <td><a href="{{doctors.id}}"><svg  width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></a></td>
                     </tr>
                     {% endfor %}   
                     
@@ -97,6 +108,13 @@
             </div>
           </div>
         {% comment %} </div> {% endcomment %}
+        <div class="modal fade" id="modal-doctor">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+      </div>
+    </div>
+  </div>
         <div class="card shadow mb-4">
             <div class="card-header py-3">
               <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
