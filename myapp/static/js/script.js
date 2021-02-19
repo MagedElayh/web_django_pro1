@@ -76,21 +76,43 @@ $(document).ready(function(){
     var loadForm = function () {
         var btn = $(this);
         $.ajax({
-          url: btn.attr("data-url"),
-          type: 'get',
-          dataType: 'json',
-          beforeSend: function () {
+        url: btn.attr("data-url"),
+        type: 'get',
+        dataType: 'json',
+        beforeSend: function () {
             $("#modal-member .modal-content").html("");
             $("#modal-member").modal("show");
-          },
-          success: function (data) {
+        },
+        success: function (data) {
             $("#modal-member .modal-content").html(data.html_form);
-          }
+        }
         });
-      };
+    };
+    
+    var saveForm = function () {
+        var form = $(this);
+        $.ajax({
+        url: form.attr("action"),
+        data: form.serialize(),
+        type: form.attr("method"),
+        dataType: 'json',
+        success: function (data) {
+            if (data.form_is_valid) {
+            $("#member-table tbody").html(data.html_member_list);
+            $("#modal-member").modal("hide");
+            }
+            else {
+            $("#modal-member .modal-content").html(data.html_form);
+            }
+        }
+        });
+        return false;
+    };
+
+    
 
     $(".js-create-member").click(loadForm);
- 
+    $("#modal-member").on("submit", ".js-member-create-form", saveForm);
 });
  
 function Read(){

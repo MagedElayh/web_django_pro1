@@ -15,11 +15,50 @@
     <div class="col-md-6 well">
         <h3 class="text-primary">Python Django CRUD With Jquery Ajax</h3>
         <hr style="border-top:1px dotted #ccc;"/>
-        {% block body %}
- 
-        {% endblock %}
+        <form class="form-inline">
+    {% csrf_token %}
+    <div class="form-group">
+        <label>Firstname</label>
+        <input type="text" id="firstname" class="form-control" style="width:30%;" required="required"/>
+        <label>Lastname</label>
+        <input type="text" id="lastname" class="form-control" style="width:30%;" required="required"/>
+        <button type="button" id="create" class="btn btn-sm btn-primary">Create</button>
     </div>
+</form>
+<br />
+<p>
+    <button type="button" class="btn btn-primary js-create-member" data-url="{% url 'member_create' %}">
+      <span class="glyphicon glyphicon-plus"></span>
+      New Member
+    </button>
+</p>
+<div id="result"></div>
 
+
+    </div>
+  
+
+    <table class="table" id="member-table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>First name </th>
+        <th>Last name</th>
+        <th>created</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% include 'myapp/partial_member_list.html' %}
+    </tbody>
+  </table>
+<div class="modal fade" id="modal-member">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+    </div>
+  </div>
+</div>
 {% comment %} <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script> {% endcomment %}
 <script src="{% static 'js/jquery-3.1.1.min.js' %}"></script>
 <script src="{% static 'js/bootstrap.min.js' %}"></script>

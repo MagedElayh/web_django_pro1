@@ -6,7 +6,9 @@ from django.http import JsonResponse
 from django.template.loader import render_to_string
 # Create your views here.
 def index(request):
-    return render(request, 'index.html')
+    members = Member.objects.all()
+    context = {'members': members}
+    return render(request, 'base.html',context)
  
  
 def create(request):
@@ -49,7 +51,7 @@ def save_member_form(request, form, template_name):
             form.save()
             data['form_is_valid'] = True
             members = Member.objects.all()
-            data['html_book_list'] = render_to_string('base.html', {
+            data['html_member_list'] = render_to_string('myapp/partial_member_list.html', {
                 'members': members
             })
         else:

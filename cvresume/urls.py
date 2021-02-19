@@ -54,7 +54,6 @@ urlpatterns = [
     url(r'^edit/(?P<id>\d+)$', vmyapp.edit, name='edit'),
     url(r'^edit/update/(?P<id>\d+)$', vmyapp.update, name='update'),
     url(r'^delete/(?P<id>\d+)$', vmyapp.delete, name='delete'),
-    url(r'^members/create/$', vmyapp.member_create, name='member_create'),
+    url(r'^myapp/create/$', vmyapp.member_create, name='member_create'),
 
-    url('',include('rooms.urls')),
 ]
