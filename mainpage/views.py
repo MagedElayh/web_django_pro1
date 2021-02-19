@@ -39,9 +39,9 @@ def doctor(request):
     #     print(periods.doctor.values('frist_name','last_name'),periods.time_from)
 
     # to get how doctor 1 have period
-    d=Doctor.objects.get(frist_name="majedd") #or  (id=1)
-    d.period_set.all()   #write model_set lowercase ffrist letter no upper
-    print(d.period_set.all())
+    # d=Doctor.objects.get(frist_name="majedd") #or  (id=1)
+    # d.period_set.all()   #write model_set lowercase ffrist letter no upper
+    # print(d.period_set.all())
 
     context={
         "perForDoc":perForDoc,
@@ -107,11 +107,3 @@ class DoctorDetail(DetailView):
     template_name='doctor_detail.html'
 
 ###############################################################
-def doctor_create(request):
-    form = DoctorForm()
-    context = {'form': form}
-    html_form = render_to_string('mainpage/includes/partial_doctor_create.html',
-        context,
-        request=request,
-    )
-    return JsonResponse({'html_form': html_form})

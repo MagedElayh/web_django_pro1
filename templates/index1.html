@@ -70,12 +70,12 @@
             <h6 class="collapse-header">Custom preparation:</h6>
             <a class="collapse-item" href="{% url 'adddoctor' %}">Add Doctor</a>
             <a class="collapse-item" href="{% url 'doctor' %}">Working Day</a>
-            {% comment %} {% url 'doctor_page' %} {% endcomment %}
-            <a class="collapse-item" ref="{% url 'secertary' %}">Employee/Secretary</a>
-            
+            <a class="collapse-item" href="{% url 'secertary' %}">Employee/Secretary</a>
+            <a class="collapse-item" href="{% url 'book_list1' %}">Book</a>
             <a class="collapse-item" href="{% url 'period' %}">Working Hours</a>
-            <a class="collapse-item" ref="{% url 'secertary' %}">Buttons</a>
-            <a class="collapse-item" href="{% url 'doctor_list' %}">Cards</a>
+            <a class="collapse-item" href="{% url 'secertary' %}">Buttons</a>
+            <a class="collapse-item" href="{% url 'home' %}">Cards</a>
+            <a class="collapse-item" href="{% url 'maapp' %}">Member</a>
           </div>
         </div>
       </li>
@@ -415,7 +415,7 @@
 
   <script src="{%static 'js/jquery.dataTables.min.js'%}"></script>
   <script src="{%static 'js/dataTables.bootstrap4.min.js'%}"></script>
-
+  
 
 
 </body>

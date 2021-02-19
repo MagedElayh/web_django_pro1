@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block body %}
+<form class="form-inline">
+    {% csrf_token %}
+    <div class="form-group">
+        <label>Firstname</label>
+        <input type="text" id="firstname" class="form-control" style="width:30%;" required="required"/>
+        <label>Lastname</label>
+        <input type="text" id="lastname" class="form-control" style="width:30%;" required="required"/>
+        <button type="button" id="create" class="btn btn-sm btn-primary">Create</button>
+    </div>
+</form>
+<br />
+<p>
+    <button type="button" class="btn btn-primary js-create-member" data-url="{% url 'member_create' %}">
+      <span class="glyphicon glyphicon-plus"></span>
+      New Member
+    </button>
+  </p>
+<div id="result"></div>
+
+<div class="modal fade" id="modal-member">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,3 +1,5 @@
+https://www.tutorialspoint.com/django/django_ajax.htm
+
 python manage.py runserver
 
 python manage.py makemigrations

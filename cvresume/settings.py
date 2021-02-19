@@ -44,7 +44,9 @@ INSTALLED_APPS = [
     'django_tables2',
     'widget_tweaks',
     'books',
-    'doctors',
+    'CRUDAPP',
+    'myapp',
+    'rooms'
     # 'table',
     
 ]

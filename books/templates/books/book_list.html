@@ -1,12 +1,16 @@
-{% extends 'base.html' %}
+{% load static %}<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bookstore - Simple is Better Than Complex</title>
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+  </head>
+  <body>
+  <div class="container">
 
-{% load static %}
 
-{% block javascript %}
-  <script src="{% static 'books/js/books.js' %}"></script>
-{% endblock %}
-
-{% block content %}
   <h1 class="page-header">Books</h1>
 
   <p>
@@ -30,7 +34,33 @@
       </tr>
     </thead>
     <tbody>
-      {% include 'books/includes/partial_book_list.html' %}
+      {% for book in books %}
+        <tr>
+          <td>{{ book.id }}</td>
+          <td>{{ book.frist_name }}</td>
+          <td>{{ book.last_name }}</td>
+          <td>{{ book.phone }}</td>
+          <td>{{ book.date_entry }}</td>
+          <td>{{ book.phone }}</td>
+          <td>{{ book.phone }}</td>
+          <td style="width: 150px">
+            <button type="button"
+                    class="btn btn-warning btn-sm js-update-book"
+                    data-url="{% url 'book_update' book.id %}">
+              <span class="glyphicon glyphicon-pencil"></span> Edit
+            </button>
+            <button type="button"
+                    class="btn btn-danger btn-sm js-delete-book"
+                    data-url="{% url 'book_delete' book.id %}">
+              <span class="glyphicon glyphicon-trash"></span> Delete
+            </button>
+          </td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="8" class="text-center bg-warning">No book</td>
+        </tr>
+      {% endfor %}
     </tbody>
   </table>
 
@@ -41,4 +71,11 @@
       </div>
     </div>
   </div>
-{% endblock %}
+
+</div>
+    <script src="{% static 'js/jquery-3.1.1.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    
+  <script src="/static/books/js/books.js"></script>
+  </body>
+</html>
