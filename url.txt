@@ -1,0 +1,5 @@
+https://github.com/studygyaan/How-To-Execute-CRUD-Using-Django-Ajax-and-JSON
+
+
+How-To-Execute-CRUD-Using-Django-Ajax-and-JSON-master
+https://github.com/studygyaan/How-To-Execute-CRUD-Using-Django-Ajax-and-JSON
