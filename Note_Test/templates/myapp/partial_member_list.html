@@ -1,0 +1,24 @@
+{% for member in members %}
+        <tr>
+          <td>{{ member.id }}</td>
+          <td>{{ member.firstname }}</td>
+          <td>{{ member.lastname }}</td>
+          <td>{{ member.created }}</td>
+          <td style="width: 150px">
+            <button type="button"
+                    class="btn btn-warning btn-sm js-update-member">
+                    {% comment %} data-url="{% url 'book_update' book.id %}" {% endcomment %}
+              <span class="glyphicon glyphicon-pencil"></span> Edit
+            </button>
+            <button type="button"
+                    class="btn btn-danger btn-sm js-delete-member">
+                    {% comment %} data-url="{% url 'book_delete' book.id %}" {% endcomment %}
+              <span class="glyphicon glyphicon-trash"></span> Delete
+            </button>
+          </td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="8" class="text-center bg-warning">No book</td>
+        </tr>
+      {% endfor %}

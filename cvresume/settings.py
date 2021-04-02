@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'books',
     'CRUDAPP',
     'myapp',
-    'rooms'
+    'Note_Test'
     # 'table',
     
 ]

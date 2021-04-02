@@ -56,4 +56,5 @@ urlpatterns = [
     url(r'^delete/(?P<id>\d+)$', vmyapp.delete, name='delete'),
     url(r'^myapp/create/$', vmyapp.member_create, name='member_create'),
 
+    path('note/',include('Note_Test.urls')),
 ]

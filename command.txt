@@ -13,6 +13,7 @@ pip install Faker
 venv\Scripts\activate.bat
 
 django-admin startapp 
+python -m django startproject
 
 python manage.py makemigrations
 python manage.py migrate

@@ -45,10 +45,7 @@
         {% endcomment %}
             <p />
             
-              {% block javascript %}
-                <script src="{% static 'mainpage/js/books.js' %}"></script>
-              {% endblock %}
-
+            
               <p>
                 <button type="button" class="btn btn-primary js-create-book" data-url="{% url 'book_create' %}">
                   <span class="glyphicon glyphicon-plus"></span>
